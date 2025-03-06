@@ -48,8 +48,62 @@
         <li>Programación básica</li>
         <li>Estudiar nuevas tecnologías</li>
     </ul>
-    
     <p>ACTUALMENTE YO SOY UN ESTUDIANTE DEL CENTRO DE ESTUDIOS DE BACHILLERATO 5/4 PROFESOR RAFAEL RAMÍREZ.</p>
-     <li><a href="#https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view">Mapa Mental</a></li>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Canva</title>
+    <style>
+        #contenedor {
+            display: none; /* Oculto por defecto */
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn" onclick="mostrarIframe()">Mostrar Diseño</button>
+
+    <div id="contenedor">
+        <div style="position: relative; width: 100%; height: 0; padding-top: 56.25%; 
+        padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; 
+        margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
+            <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; 
+            top: 0; left: 0; border: none; padding: 0; margin: 0;"
+            src="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?embed" 
+            allowfullscreen="allowfullscreen" allow="fullscreen">
+            </iframe>
+        </div>
+        <a href="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?utm_content=DAGg0CSSfUA&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">
+            Orange and White Creative Mind Map Brainstorm
+        </a>
+    </div>
+
+    <script>
+        function mostrarIframe() {
+            var contenedor = document.getElementById("contenedor");
+            if (contenedor.style.display === "none") {
+                contenedor.style.display = "block";
+            } else {
+                contenedor.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
 </body>
 </html>
