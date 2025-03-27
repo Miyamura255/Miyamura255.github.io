@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos con CSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffeb3b; /* Amarillo */
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px; /* px */
+            color: #d32f2f; /* Rojo oscuro */
+        }
+        h2 {
+            font-size: 28px; /* px */
+            color: rgb(33, 150, 243); /* Azul */
+        }
+        h3 {
+            font-size: 24px; /* px */
+            color: hsl(120, 60%, 30%); /* Verde oscuro */
+        }
+        p {
+            font-size: 1.2em; /* em */
+            color: #444; /* Gris oscuro */
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Encabezado H1</h1>
+    <h2>Encabezado H2</h2>
+    <h3>Encabezado H3</h3>
+    <p>Este es un párrafo con estilos personalizados.</p>
+</body>
+</html>
