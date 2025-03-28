@@ -29,15 +29,27 @@
         .museo-virtual {
             margin-top: 20px;
         }
+        .btn-correo {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-correo:hover {
+            background-color: darkblue;
+        }
     </style>
 </head>
 <body>
     <nav>
         <ul>
             <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#" onclick="mostrarCorreo()">Acerca de</a></li>
+            <li><a href="#acerca">Acerca de</a></li>
             <li><a href="#" ondblclick="mostrarTelefono()">Contacto</a></li>
             <li><a href="#museo-virtual">Museo Virtual</a></li>
+            <li><button class="btn-correo" onclick="mostrarCorreo()">Correo</button></li>
         </ul>
     </nav>
 
