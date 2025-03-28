@@ -13,28 +13,26 @@
             text-align: center;
         }
         h1 {
-            font-size: 36px; /* px */
+            font-size: 40px; /* px */
             color: #d32f2f; /* Rojo oscuro */
         }
         h2 {
-            font-size: 28px; /* px */
+            font-size: 1.8em; /* em */
             color: rgb(33, 150, 243); /* Azul */
-        }
-        h3 {
-            font-size: 24px; /* px */
-            color: hsl(120, 60%, 30%); /* Verde oscuro */
+            font-style: italic;
         }
         p {
-            font-size: 1.2em; /* em */
-            color: #444; /* Gris oscuro */
+            font-size: 120%; /* % */
+            color: hsl(0, 0%, 20%); /* Gris oscuro */
             line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto;
         }
     </style>
 </head>
 <body>
-    <h1>Encabezado H1</h1>
-    <h2>Encabezado H2</h2>
-    <h3>Encabezado H3</h3>
-    <p>Este es un párrafo con estilos personalizados.</p>
+    <h1>Rodolfo Eduardo</h1>
+    <h2>Programador y Diseñador web</h2>
+    <p>Pues soy alguien tranquilo y callado que disfruta de escuchar música. A mí me gusta entretenerme leyendo y jugando videojuegos.</p>
 </body>
 </html>
