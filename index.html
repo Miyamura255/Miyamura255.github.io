@@ -1,6 +1,7 @@
 <!DOCTYPE html> 
 <html lang="es">
-<head>    <link rel="stylesheet" href="estilos.css">
+<head>
+    <link rel="stylesheet" href="estilos.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Página Personal</title>
@@ -34,8 +35,8 @@
     <nav>
         <ul>
             <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#" onclick="mostrarTelefono()">Acerca de</a></li>
-            <li><a href="#" onclick="mostrarCorreo()">Contacto</a></li>
+            <li><a href="#acerca">Acerca de</a></li>
+            <li><a href="#" onclick="mostrarContacto()">Contacto</a></li>
             <li><a href="#museo-virtual">Museo Virtual</a></li>
         </ul>
     </nav>
@@ -85,12 +86,8 @@
             contenedor.style.display = contenedor.style.display === "none" ? "block" : "none";
         }
 
-        function mostrarCorreo() {
-            alert("Mi correo es: rodolfohernandez5--4@dgb.edu.mx");
-        }
-        
-        function mostrarTelefono() {
-            alert("Mi número de teléfono es: 7715037670");
+        function mostrarContacto() {
+            alert("Mi correo es: rodolfohernandez5--4@dgb.edu.mx\nMi número de teléfono es: 7715037670");
         }
     </script>
 </body>
