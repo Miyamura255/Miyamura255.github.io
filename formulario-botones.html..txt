@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Validado</title>
+
+  <!-- Íconos con Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Estilos CSS -->
+  <style>
+    /* ==== Estilos base ==== */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ece9e6, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* ==== Contenedor del formulario ==== */
+    form {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    /* ==== Título del formulario ==== */
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    /* ==== Etiquetas y campos ==== */
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+
+    /* ==== Mensajes de error ==== */
+    .error {
+      color: #e53935;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    /* ==== Botones ==== */
+    .botones {
+      margin-top: 25px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    button {
+      padding: 12px 18px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      color: white;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Colores individuales */
+    button[type="submit"]    { background-color: #4CAF50; }
+    button[type="submit"]:hover { background-color: #45a049; }
+
+    button[type="reset"]     { background-color: #f44336; }
+    button[type="reset"]:hover { background-color: #e53935; }
+
+    button[type="button"]    { background-color: #2196F3; }
+    button[type="button"]:hover { background-color: #1e88e5; }
+
+    /* Animación de entrada */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== Formulario de contacto ===== -->
+  <form id="formulario">
+    <h2><i class="fas fa-paper-plane"></i> Contacto</h2>
+
+    <!-- Campo: Nombre -->
+    <label for="nombre">Nombre completo:</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo">
+    <div class="error" id="error-nombre"></div>
+
+    <!-- Campo: Correo -->
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com">
+    <div class="error" id="error-correo"></div>
+
+    <!-- Campo: Comentario -->
+    <label for="comentario">Comentario:</label>
+    <textarea id="comentario" name="comentario" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+    <div class="error" id="error-comentario"></div>
+
+    <!-- Botones -->
+    <div class="botones">
+      <button type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
+      <button type="reset"><i class="fas fa-eraser"></i> Limpiar</button>
+      <button type="button" onclick="mostrarAyuda()"><i class="fas fa-question-circle"></i> Ayuda</button>
+    </div>
+  </form>
+
+  <!-- ===== Script de validación personalizada ===== -->
+  <script>
+    // Mensaje de ayuda
+    function mostrarAyuda() {
+      alert("Completa todos los campos del formulario.\n\n• Usa 'Enviar' para mandar el mensaje.\n• Usa 'Limpiar' para borrar todo.\n• Si necesitas ayuda, haz clic en 'Ayuda'.");
+    }
+
+    // Validación al enviar
+    document.getElementById("formulario").addEventListener("submit", function(event) {
+      event.preventDefault(); // Evita el envío inmediato
+
+      // Limpiar errores anteriores
+      document.getElementById("error-nombre").textContent = "";
+      document.getElementById("error-correo").textContent = "";
+      document.getElementById("error-comentario").textContent = "";
+
+      // Obtener valores
+      const nombre = document.getElementById("nombre").value.trim();
+      const correo = document.getElementById("correo").value.trim();
+      const comentario = document.getElementById("comentario").value.trim();
+
+      // Expresión regular para validar correo
+      const correoRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+      let valido = true;
+
+      // Validar nombre
+      if (nombre.length < 3) {
+        document.getElementById("error-nombre").textContent = "El nombre debe tener al menos 3 caracteres.";
+        valido = false;
+      }
+
+      // Validar correo
+      if (!correoRegex.test(correo)) {
+        document.getElementById("error-correo").textContent = "Ingresa un correo electrónico válido.";
+        valido = false;
+      }
+
+      // Validar comentario
+      if (comentario.length < 10) {
+        document.getElementById("error-comentario").textContent = "El comentario debe tener al menos 10 caracteres.";
+        valido = false;
+      }
+
+      // Si todo es válido
+      if (valido) {
+        alert("Formulario enviado correctamente 🎉");
+        document.getElementById("formulario").reset(); // Limpiar formulario
+      }
+    });
+  </script>
+
+</body>
+</html>
