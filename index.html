@@ -6,39 +6,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Página Personal</title>
     <style>
+        /* ====================== */
+        /* ==== Estilos Base ==== */
+        /* ====================== */
         body {
             background-color: darkcyan;
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
+            margin: 0;
         }
+
         h1 {
             color: darkgreen;
         }
+
         ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
         }
-        li {
-            background-color: red;
-            margin: 5px;
-            padding: 10px;
-            border-radius: 5px;
-            display: inline-block;
-        }
-        .museo-virtual {
-            margin-top: 20px;
-        }
-        .btn-correo {
-            background-color: blue;
-            color: white;
-            padding: 10px;
+
+        /* ========================= */
+        /* ==== Botones modernos ==== */
+        /* ========================= */
+        button, .btn-correo, nav ul li a {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 15px;
+            padding: 10px 16px;
             border: none;
-            border-radius: 5px;
+            border-radius: 12px;
             cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            margin: 5px 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Colores personalizados */
+        .btn-correo {
+            background-color: #007BFF;
         }
         .btn-correo:hover {
-            background-color: darkblue;
+            background-color: #0056b3;
+        }
+
+        button.btn {
+            background-color: #28a745;
+        }
+        button.btn:hover {
+            background-color: #218838;
+        }
+
+        nav ul li a {
+            background-color: #6c757d;
+        }
+        nav ul li a:hover {
+            background-color: #5a6268;
+        }
+
+        #museo-virtual ul li a {
+            background-color: #17a2b8;
+            padding: 8px 14px;
+            border-radius: 10px;
+        }
+        #museo-virtual ul li a:hover {
+            background-color: #138496;
+        }
+
+        /* ============================ */
+        /* ==== Diseño responsivo ===== */
+        /* ============================ */
+        nav ul, #museo-virtual ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        nav ul li, #museo-virtual ul li {
+            margin: 5px;
+        }
+
+        /* Responsive: pantalla pequeña */
+        @media (max-width: 600px) {
+            button, .btn-correo, nav ul li a, #museo-virtual ul li a {
+                width: 100%;
+                max-width: 300px;
+                margin: 8px auto;
+                display: block;
+            }
+
+            iframe {
+                width: 100% !important;
+                height: 300px !important;
+                position: relative !important;
+            }
         }
     </style>
 </head>
@@ -84,9 +149,8 @@
             <li><a href="cat.svg" target="_blank">Gato</a></li>
             <li><a href="INVITACION FOFO.svg" target="_blank">Invitación Fofo</a></li>
             <li><a href="dibujo.svg" target="_blank">Dibujo</a></li>
-                <li><a href=" contacto.html
-" target="_blank">formulario</a></li>
-
+            <li><a href="contacto.html" target="_blank">Formulario</a></li>
+        </ul>
     </div>
 
     <script>
@@ -103,7 +167,6 @@
             alert("Mi correo es: rodolfohernandezh5--4@dgb.edu.mx");
         }
     </script>
-        <li><a href="perfil.html">Ver perfil de Miyamura255</a><li>
-            <li><a href="formulario-botones.html"> ver formulario-botones</a><li>
+
 </body>
 </html>
