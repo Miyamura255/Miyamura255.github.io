@@ -170,6 +170,23 @@
             alert("Mi correo es: rodolfohernandezh5--4@dgb.edu.mx");
         }
     </script> 
+ <script>
+    // Ocultar museo al inicio
+    document.getElementById("museo-virtual").style.display = "none";
+
+    function validarLogin() {
+        const usuario = document.getElementById("usuario").value;
+        const contrasena = document.getElementById("contrasena").value;
+        const mensaje = document.getElementById("mensaje-login");
+
+        if (usuario === "alumno" && contrasena === "2525") {
+            document.getElementById("login-container").style.display = "none";
+            document.getElementById("museo-virtual").style.display = "block";
+        } else {
+            mensaje.textContent = "Usuario o contraseña incorrectos.";
+        }
+    }
+</script>
 
 </body>
 </html>
