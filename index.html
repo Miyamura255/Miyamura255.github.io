@@ -130,10 +130,9 @@
         </a>
     </div>
 
-    <!-- Botón para entrar al museo -->
     <button class="btn" onclick="mostrarLogin()">Entrar al Museo Virtual</button>
 
-    <!-- Contenedor del login (oculto al inicio) -->
+    <!-- Contenedor del login -->
     <div id="login-container" style="display:none; background-color: white; padding: 20px; border-radius: 15px; max-width: 400px; margin: 20px auto;">
         <h2>Iniciar Sesión</h2>
         <input type="text" id="usuario" placeholder="Usuario" style="padding: 10px; width: 90%; margin-bottom: 10px;"><br>
@@ -142,7 +141,10 @@
         <p id="mensaje-login" style="color: red;"></p>
     </div>
 
-    <!-- Museo oculto -->
+    <!-- Mensaje de despedida -->
+    <p id="mensaje-salida" style="color: green; font-weight: bold; display: none;">¡Has cerrado sesión exitosamente!</p>
+
+    <!-- Museo Virtual -->
     <div id="museo-virtual" class="museo-virtual" style="display: none;">
         <h2>Museo Virtual</h2>
         <ul>
@@ -154,6 +156,9 @@
             <li><a href="perfil.html">Ver perfil de Miyamura255</a></li>
             <li><a href="formulario-botones.html">Ver formulario-botones</a></li>
         </ul>
+
+        <!-- Botón de cerrar sesión -->
+        <button class="btn" onclick="cerrarSesion()">Cerrar Sesión</button>
     </div>
 
     <script>
@@ -186,7 +191,21 @@
                 mensaje.textContent = "Usuario o contraseña incorrectos.";
             }
         }
+
+        function cerrarSesion() {
+            document.getElementById("museo-virtual").style.display = "none";
+            document.getElementById("login-container").style.display = "block";
+            document.getElementById("usuario").value = "";
+            document.getElementById("contrasena").value = "";
+            document.getElementById("mensaje-login").textContent = "";
+
+            const mensajeSalida = document.getElementById("mensaje-salida");
+            mensajeSalida.style.display = "block";
+
+            setTimeout(() => {
+                mensajeSalida.style.display = "none";
+            }, 4000);
+        }
     </script>
 </body>
 </html>
-
