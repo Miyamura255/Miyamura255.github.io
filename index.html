@@ -111,7 +111,7 @@
     <p>¡Saludos a todos! Esta es mi página donde comparto mis intereses y hobbies.</p>
     <p>A mí me gustan los videojuegos, soy una persona muy tranquila, actualmente estudio la preparatoria, mis hobbies son ver series.</p>
     <img src="https://img.asmedia.epimg.net/resizer/v2/NCSUTWCFKVFM5CST6IA2Q6RHSM.jpeg?auth=718e4edc8014c15a453453038c506334e95d3496ed62ec52f82f1cb965f35eaf&width=644&height=362&smart=true" alt="Imagen representativa" width="300">
-    
+
     <h2>Mis intereses</h2>
     <ul>
         <li>Edición de video</li>
@@ -119,101 +119,8 @@
         <li>Estudiar nuevas tecnologías</li>
     </ul>
     <p>ACTUALMENTE YO SOY UN ESTUDIANTE DEL CENTRO DE ESTUDIOS DE BACHILLERATO 5/4 PROFESOR RAFAEL RAMÍREZ.</p>
-    
     <button class="btn" onclick="mostrarIframe()">Mostrar Diseño</button>
 
     <div id="contenedor" style="display: none;">
         <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
-        src="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?embed" 
-        allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-        <a href="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?utm_content=DAGg0CSSfUA&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">
-            Orange and White Creative Mind Map Brainstorm
-        </a>
-    </div>
-
-    <button class="btn" onclick="mostrarLogin()">Entrar al Museo Virtual</button>
-
-    <!-- Botón adicional de cerrar sesión, visible después de iniciar sesión -->
-    <div id="cerrar-sesion-extra" style="display: none;">
-        <button class="btn" onclick="cerrarSesion()">Cerrar Sesión</button>
-    </div>
-
-    <!-- Contenedor del login -->
-    <div id="login-container" style="display:none; background-color: white; padding: 20px; border-radius: 15px; max-width: 400px; margin: 20px auto;">
-        <h2>Iniciar Sesión</h2>
-        <input type="text" id="usuario" placeholder="Usuario" style="padding: 10px; width: 90%; margin-bottom: 10px;"><br>
-        <input type="password" id="contrasena" placeholder="Contraseña" style="padding: 10px; width: 90%; margin-bottom: 10px;"><br>
-        <button onclick="validarLogin()" class="btn">Entrar</button>
-        <p id="mensaje-login" style="color: red;"></p>
-    </div>
-
-    <!-- Mensaje de despedida -->
-    <p id="mensaje-salida" style="color: green; font-weight: bold; display: none;">¡Has cerrado sesión exitosamente!</p>
-
-    <!-- Museo Virtual -->
-    <div id="museo-virtual" class="museo-virtual" style="display: none;">
-        <h2>Museo Virtual</h2>
-
-        <ul>
-            <li><a href="TAZA FOFO.svg" target="_blank">Taza Fofo</a></li>
-            <li><a href="cat.svg" target="_blank">Gato</a></li>
-            <li><a href="INVITACION FOFO.svg" target="_blank">Invitación Fofo</a></li>
-            <li><a href="dibujo.svg" target="_blank">Dibujo</a></li>
-            <li><a href="contacto.html" target="_blank">Formulario</a></li>
-            <li><a href="perfil.html">Ver perfil de Miyamura255</a></li>
-            <li><a href="formulario-botones.html">Ver formulario-botones</a></li>
-        </ul>
-
-        <button class="btn" onclick="cerrarSesion()">Cerrar Sesión</button>
-    </div>
-
-    <script>
-        function mostrarIframe() {
-            var contenedor = document.getElementById("contenedor");
-            contenedor.style.display = contenedor.style.display === "none" ? "block" : "none";
-        }
-
-        function mostrarTelefono() {
-            alert("Mi número es: 7715037670");
-        }
-
-        function mostrarCorreo() {
-            alert("Mi correo es: rodolfohernandezh5--4@dgb.edu.mx");
-        }
-
-        function mostrarLogin() {
-            document.getElementById("login-container").style.display = "block";
-        }
-
-        function validarLogin() {
-            const usuario = document.getElementById("usuario").value;
-            const contrasena = document.getElementById("contrasena").value;
-            const mensaje = document.getElementById("mensaje-login");
-
-            if (usuario === "alumno" && contrasena === "2525") {
-                document.getElementById("login-container").style.display = "none";
-                document.getElementById("museo-virtual").style.display = "block";
-                document.getElementById("cerrar-sesion-extra").style.display = "block";
-            } else {
-                mensaje.textContent = "Usuario o contraseña incorrectos.";
-            }
-        }
-
-        function cerrarSesion() {
-            document.getElementById("museo-virtual").style.display = "none";
-            document.getElementById("login-container").style.display = "block";
-            document.getElementById("usuario").value = "";
-            document.getElementById("contrasena").value = "";
-            document.getElementById("mensaje-login").textContent = "";
-            document.getElementById("cerrar-sesion-extra").style.display = "none";
-
-            const mensajeSalida = document.getElementById("mensaje-salida");
-            mensajeSalida.style.display = "block";
-
-            setTimeout(() => {
-                mensajeSalida.style.display = "none";
-            }, 4000);
-        }
-    </script>
-</body>
-</html>
+        src="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY
