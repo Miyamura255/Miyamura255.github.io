@@ -1,4 +1,4 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <link rel="stylesheet" href="estilos.css">
@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Página Personal</title>
     <style>
+        /* [Estilos originales, sin cambios] */
         body {
             background-color: darkcyan;
             font-family: Arial, sans-serif;
@@ -13,17 +14,8 @@
             padding: 20px;
             margin: 0;
         }
-
-        h1 {
-            color: darkgreen;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
+        h1 { color: darkgreen; }
+        ul { list-style-type: none; padding: 0; margin: 0; }
         button, .btn-correo, nav ul li a {
             font-family: 'Segoe UI', sans-serif;
             font-size: 15px;
@@ -38,28 +30,12 @@
             margin: 5px 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
-
-        .btn-correo {
-            background-color: #007BFF;
-        }
-        .btn-correo:hover {
-            background-color: #0056b3;
-        }
-
-        button.btn {
-            background-color: #28a745;
-        }
-        button.btn:hover {
-            background-color: #218838;
-        }
-
-        nav ul li a {
-            background-color: #6c757d;
-        }
-        nav ul li a:hover {
-            background-color: #5a6268;
-        }
-
+        .btn-correo { background-color: #007BFF; }
+        .btn-correo:hover { background-color: #0056b3; }
+        button.btn { background-color: #28a745; }
+        button.btn:hover { background-color: #218838; }
+        nav ul li a { background-color: #6c757d; }
+        nav ul li a:hover { background-color: #5a6268; }
         #museo-virtual ul li a {
             background-color: #17a2b8;
             padding: 8px 14px;
@@ -68,18 +44,15 @@
         #museo-virtual ul li a:hover {
             background-color: #138496;
         }
-
         nav ul, #museo-virtual ul {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
         }
-
         nav ul li, #museo-virtual ul li {
             margin: 5px;
         }
-
         @media (max-width: 600px) {
             button, .btn-correo, nav ul li a, #museo-virtual ul li a {
                 width: 100%;
@@ -87,7 +60,6 @@
                 margin: 8px auto;
                 display: block;
             }
-
             iframe {
                 width: 100% !important;
                 height: 300px !important;
@@ -111,7 +83,7 @@
     <p>¡Saludos a todos! Esta es mi página donde comparto mis intereses y hobbies.</p>
     <p>A mí me gustan los videojuegos, soy una persona muy tranquila, actualmente estudio la preparatoria, mis hobbies son ver series.</p>
     <img src="https://img.asmedia.epimg.net/resizer/v2/NCSUTWCFKVFM5CST6IA2Q6RHSM.jpeg?auth=718e4edc8014c15a453453038c506334e95d3496ed62ec52f82f1cb965f35eaf&width=644&height=362&smart=true" alt="Imagen representativa" width="300">
-    
+
     <h2>Mis intereses</h2>
     <ul>
         <li>Edición de video</li>
@@ -119,11 +91,11 @@
         <li>Estudiar nuevas tecnologías</li>
     </ul>
     <p>ACTUALMENTE YO SOY UN ESTUDIANTE DEL CENTRO DE ESTUDIOS DE BACHILLERATO 5/4 PROFESOR RAFAEL RAMÍREZ.</p>
+    
     <button class="btn" onclick="mostrarIframe()">Mostrar Diseño</button>
-
     <div id="contenedor" style="display: none;">
         <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
-        src="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?embed" 
+        src="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?embed"
         allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
         <a href="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?utm_content=DAGg0CSSfUA&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">
             Orange and White Creative Mind Map Brainstorm
@@ -156,8 +128,6 @@
             <li><a href="perfil.html">Ver perfil de Miyamura255</a></li>
             <li><a href="formulario-botones.html">Ver formulario-botones</a></li>
         </ul>
-
-        <!-- Botón de cerrar sesión -->
         <button class="btn" onclick="cerrarSesion()">Cerrar Sesión</button>
     </div>
 
@@ -185,6 +155,7 @@
             const mensaje = document.getElementById("mensaje-login");
 
             if (usuario === "alumno" && contrasena === "2525") {
+                localStorage.setItem("logueado", "true");
                 document.getElementById("login-container").style.display = "none";
                 document.getElementById("museo-virtual").style.display = "block";
             } else {
@@ -193,6 +164,7 @@
         }
 
         function cerrarSesion() {
+            localStorage.removeItem("logueado");
             document.getElementById("museo-virtual").style.display = "none";
             document.getElementById("login-container").style.display = "block";
             document.getElementById("usuario").value = "";
@@ -201,11 +173,18 @@
 
             const mensajeSalida = document.getElementById("mensaje-salida");
             mensajeSalida.style.display = "block";
-
             setTimeout(() => {
                 mensajeSalida.style.display = "none";
             }, 4000);
         }
+
+        // Verifica el estado del login al cargar la página
+        window.onload = function() {
+            if (localStorage.getItem("logueado") === "true") {
+                document.getElementById("museo-virtual").style.display = "block";
+                document.getElementById("login-container").style.display = "none";
+            }
+        };
     </script>
 </body>
 </html>
