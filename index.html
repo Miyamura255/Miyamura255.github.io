@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Página Personal</title>
     <style>
-        /* ====================== */
-        /* ==== Estilos Base ==== */
-        /* ====================== */
         body {
             background-color: darkcyan;
             font-family: Arial, sans-serif;
@@ -27,9 +24,6 @@
             margin: 0;
         }
 
-        /* ========================= */
-        /* ==== Botones modernos ==== */
-        /* ========================= */
         button, .btn-correo, nav ul li a {
             font-family: 'Segoe UI', sans-serif;
             font-size: 15px;
@@ -45,7 +39,6 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
-        /* Colores personalizados */
         .btn-correo {
             background-color: #007BFF;
         }
@@ -76,9 +69,6 @@
             background-color: #138496;
         }
 
-        /* ============================ */
-        /* ==== Diseño responsivo ===== */
-        /* ============================ */
         nav ul, #museo-virtual ul {
             display: flex;
             flex-wrap: wrap;
@@ -90,7 +80,6 @@
             margin: 5px;
         }
 
-        /* Responsive: pantalla pequeña */
         @media (max-width: 600px) {
             button, .btn-correo, nav ul li a, #museo-virtual ul li a {
                 width: 100%;
@@ -105,55 +94,82 @@
                 position: relative !important;
             }
         }
+
+        /* Estilo para el contenedor de login */
+        #login-container {
+            margin-top: 50px;
+        }
+
+        #login-container input {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        #main-content {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#acerca">Acerca de</a></li>
-            <li><a href="#" ondblclick="mostrarTelefono()">Contacto</a></li>
-            <li><a href="#museo-virtual">Museo Virtual</a></li>
-            <li><button class="btn-correo" onclick="mostrarCorreo()">Correo</button></li>
-        </ul>
-    </nav>
 
-    <h1>RODOLFO EDUARDO</h1>
-    <p>¡Saludos a todos! Esta es mi página donde comparto mis intereses y hobbies.</p>
-    <p>A mí me gustan los videojuegos, soy una persona muy tranquila, actualmente estudio la preparatoria, mis hobbies son ver series.</p>
-    <img src="https://img.asmedia.epimg.net/resizer/v2/NCSUTWCFKVFM5CST6IA2Q6RHSM.jpeg?auth=718e4edc8014c15a453453038c506334e95d3496ed62ec52f82f1cb965f35eaf&width=644&height=362&smart=true" alt="Imagen representativa" width="300">
-    
-    <h2>Mis intereses</h2>
-    <ul>
-        <li>Edición de video</li>
-        <li>Programación básica</li>
-        <li>Estudiar nuevas tecnologías</li>
-    </ul>
-    <p>ACTUALMENTE YO SOY UN ESTUDIANTE DEL CENTRO DE ESTUDIOS DE BACHILLERATO 5/4 PROFESOR RAFAEL RAMÍREZ.</p>
-    <button class="btn" onclick="mostrarIframe()">Mostrar Diseño</button>
-
-    <div id="contenedor" style="display: none;">
-        <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
-        src="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?embed" 
-        allowfullscreen="allowfullscreen" allow="fullscreen">
-        </iframe>
-        <a href="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?utm_content=DAGg0CSSfUA&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">
-            Orange and White Creative Mind Map Brainstorm
-        </a>
+    <!-- Interfaz de Login -->
+    <div id="login-container">
+        <h2>Iniciar sesión</h2>
+        <input type="text" id="usuario" placeholder="Usuario"><br>
+        <input type="password" id="contraseña" placeholder="Contraseña"><br>
+        <button onclick="validarLogin()">Ingresar</button>
+        <p id="mensaje" style="color: red;"></p>
     </div>
 
-    <div id="museo-virtual" class="museo-virtual">
-        <h2>Museo Virtual</h2>
-        <ul>
-            <li><a href="TAZA FOFO.svg" target="_blank">Taza Fofo</a></li>
-            <li><a href="cat.svg" target="_blank">Gato</a></li>
-            <li><a href="INVITACION FOFO.svg" target="_blank">Invitación Fofo</a></li>
-            <li><a href="dibujo.svg" target="_blank">Dibujo</a></li>
-            <li><a href="contacto.html" target="_blank">Formulario</a></li>
-            <li><a href="perfil.html">Ver perfil de Miyamura255</a></li>
-            <li><a href="formulario-botones.html"> ver formulario-botones</a></li>
+    <!-- Contenido principal oculto hasta iniciar sesión -->
+    <div id="main-content">
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#acerca">Acerca de</a></li>
+                <li><a href="#" ondblclick="mostrarTelefono()">Contacto</a></li>
+                <li><a href="#museo-virtual">Museo Virtual</a></li>
+                <li><button class="btn-correo" onclick="mostrarCorreo()">Correo</button></li>
+            </ul>
+        </nav>
 
+        <h1>RODOLFO EDUARDO</h1>
+        <p>¡Saludos a todos! Esta es mi página donde comparto mis intereses y hobbies.</p>
+        <p>A mí me gustan los videojuegos, soy una persona muy tranquila, actualmente estudio la preparatoria, mis hobbies son ver series.</p>
+        <img src="https://img.asmedia.epimg.net/resizer/v2/NCSUTWCFKVFM5CST6IA2Q6RHSM.jpeg?auth=718e4edc8014c15a453453038c506334e95d3496ed62ec52f82f1cb965f35eaf&width=644&height=362&smart=true" alt="Imagen representativa" width="300">
+        
+        <h2>Mis intereses</h2>
+        <ul>
+            <li>Edición de video</li>
+            <li>Programación básica</li>
+            <li>Estudiar nuevas tecnologías</li>
         </ul>
+        <p>ACTUALMENTE YO SOY UN ESTUDIANTE DEL CENTRO DE ESTUDIOS DE BACHILLERATO 5/4 PROFESOR RAFAEL RAMÍREZ.</p>
+        <button class="btn" onclick="mostrarIframe()">Mostrar Diseño</button>
+
+        <div id="contenedor" style="display: none;">
+            <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
+            src="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?embed" 
+            allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+            <a href="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?utm_content=DAGg0CSSfUA&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">
+                Orange and White Creative Mind Map Brainstorm
+            </a>
+        </div>
+
+        <div id="museo-virtual" class="museo-virtual">
+            <h2>Museo Virtual</h2>
+            <ul>
+                <li><a href="TAZA FOFO.svg" target="_blank">Taza Fofo</a></li>
+                <li><a href="cat.svg" target="_blank">Gato</a></li>
+                <li><a href="INVITACION FOFO.svg" target="_blank">Invitación Fofo</a></li>
+                <li><a href="dibujo.svg" target="_blank">Dibujo</a></li>
+                <li><a href="contacto.html" target="_blank">Formulario</a></li>
+                <li><a href="perfil.html">Ver perfil de Miyamura255</a></li>
+                <li><a href="formulario-botones.html"> ver formulario-botones</a></li>
+            </ul>
+        </div>
     </div>
 
     <script>
@@ -169,7 +185,20 @@
         function mostrarCorreo() {
             alert("Mi correo es: rodolfohernandezh5--4@dgb.edu.mx");
         }
-    </script> 
+
+        function validarLogin() {
+            const usuario = document.getElementById("usuario").value;
+            const contraseña = document.getElementById("contraseña").value;
+            const mensaje = document.getElementById("mensaje");
+
+            if (usuario === "alumno" && contraseña === "2525") {
+                document.getElementById("login-container").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+            } else {
+                mensaje.textContent = "Usuario o contraseña incorrectos.";
+            }
+        }
+    </script>
 
 </body>
 </html>
