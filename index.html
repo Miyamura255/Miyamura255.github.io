@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Página Personal</title>
     <style>
-        /* ====================== */
-        /* ==== Estilos Base ==== */
-        /* ====================== */
         body {
             background-color: darkcyan;
             font-family: Arial, sans-serif;
@@ -27,9 +24,6 @@
             margin: 0;
         }
 
-        /* ========================= */
-        /* ==== Botones modernos ==== */
-        /* ========================= */
         button, .btn-correo, nav ul li a {
             font-family: 'Segoe UI', sans-serif;
             font-size: 15px;
@@ -45,7 +39,6 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
-        /* Colores personalizados */
         .btn-correo {
             background-color: #007BFF;
         }
@@ -76,9 +69,6 @@
             background-color: #138496;
         }
 
-        /* ============================ */
-        /* ==== Diseño responsivo ===== */
-        /* ============================ */
         nav ul, #museo-virtual ul {
             display: flex;
             flex-wrap: wrap;
@@ -90,7 +80,6 @@
             margin: 5px;
         }
 
-        /* Responsive: pantalla pequeña */
         @media (max-width: 600px) {
             button, .btn-correo, nav ul li a, #museo-virtual ul li a {
                 width: 100%;
@@ -116,15 +105,6 @@
             <li><a href="#museo-virtual">Museo Virtual</a></li>
             <li><button class="btn-correo" onclick="mostrarCorreo()">Correo</button></li>
         </ul>
-</div>
-<div id="login-container" style="background-color: white; padding: 20px; border-radius: 15px; max-width: 400px; margin: 20px auto;">
-    <h2>Iniciar Sesión</h2>
-    <input type="text" id="usuario" placeholder="Usuario" style="padding: 10px; width: 90%; margin-bottom: 10px;"><br>
-    <input type="password" id="contrasena" placeholder="Contraseña" style="padding: 10px; width: 90%; margin-bottom: 10px;"><br>
-    <button onclick="validarLogin()" class="btn">Entrar</button>
-    <p id="mensaje-login" style="color: red;"></p>
-</div>
-
     </nav>
 
     <h1>RODOLFO EDUARDO</h1>
@@ -144,14 +124,26 @@
     <div id="contenedor" style="display: none;">
         <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
         src="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?embed" 
-        allowfullscreen="allowfullscreen" allow="fullscreen">
-        </iframe>
+        allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
         <a href="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?utm_content=DAGg0CSSfUA&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">
             Orange and White Creative Mind Map Brainstorm
         </a>
     </div>
 
-    <div id="museo-virtual" class="museo-virtual">
+    <!-- Botón para entrar al museo -->
+    <button class="btn" onclick="mostrarLogin()">Entrar al Museo Virtual</button>
+
+    <!-- Contenedor del login (oculto al inicio) -->
+    <div id="login-container" style="display:none; background-color: white; padding: 20px; border-radius: 15px; max-width: 400px; margin: 20px auto;">
+        <h2>Iniciar Sesión</h2>
+        <input type="text" id="usuario" placeholder="Usuario" style="padding: 10px; width: 90%; margin-bottom: 10px;"><br>
+        <input type="password" id="contrasena" placeholder="Contraseña" style="padding: 10px; width: 90%; margin-bottom: 10px;"><br>
+        <button onclick="validarLogin()" class="btn">Entrar</button>
+        <p id="mensaje-login" style="color: red;"></p>
+    </div>
+
+    <!-- Museo oculto -->
+    <div id="museo-virtual" class="museo-virtual" style="display: none;">
         <h2>Museo Virtual</h2>
         <ul>
             <li><a href="TAZA FOFO.svg" target="_blank">Taza Fofo</a></li>
@@ -160,8 +152,7 @@
             <li><a href="dibujo.svg" target="_blank">Dibujo</a></li>
             <li><a href="contacto.html" target="_blank">Formulario</a></li>
             <li><a href="perfil.html">Ver perfil de Miyamura255</a></li>
-            <li><a href="formulario-botones.html"> ver formulario-botones</a></li>
-
+            <li><a href="formulario-botones.html">Ver formulario-botones</a></li>
         </ul>
     </div>
 
@@ -178,24 +169,24 @@
         function mostrarCorreo() {
             alert("Mi correo es: rodolfohernandezh5--4@dgb.edu.mx");
         }
-    </script> 
- <script>
-    // Ocultar museo al inicio
-    document.getElementById("museo-virtual").style.display = "none";
 
-    function validarLogin() {
-        const usuario = document.getElementById("usuario").value;
-        const contrasena = document.getElementById("contrasena").value;
-        const mensaje = document.getElementById("mensaje-login");
-
-        if (usuario === "alumno" && contrasena === "2525") {
-            document.getElementById("login-container").style.display = "none";
-            document.getElementById("museo-virtual").style.display = "block";
-        } else {
-            mensaje.textContent = "Usuario o contraseña incorrectos.";
+        function mostrarLogin() {
+            document.getElementById("login-container").style.display = "block";
         }
-    }
-</script>
 
+        function validarLogin() {
+            const usuario = document.getElementById("usuario").value;
+            const contrasena = document.getElementById("contrasena").value;
+            const mensaje = document.getElementById("mensaje-login");
+
+            if (usuario === "alumno" && contrasena === "2525") {
+                document.getElementById("login-container").style.display = "none";
+                document.getElementById("museo-virtual").style.display = "block";
+            } else {
+                mensaje.textContent = "Usuario o contraseña incorrectos.";
+            }
+        }
+    </script>
 </body>
 </html>
+
