@@ -1,37 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
-<head> <link rel="stylesheet" href="estilos.css">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estilos con CSS</title>
+    <title>Museo Virtual - Rodolfo Eduardo</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #ffeb3b; /* Amarillo */
+            background: linear-gradient(135deg, #fff9c4, #ffe082);
             font-family: 'Roboto', Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fffde7;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
             text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
-        h1, h2 {
-            font-size: 40px; /* px para h1 */
-            color: #FFD700; /* Dorado para destacar sobre el fondo */
+
+        h1 {
+            font-size: 3em;
+            color: #f9a825;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
+
         h2 {
-            font-size: 1.8em; /* em */
+            font-size: 2em;
+            color: #fbc02d;
             font-style: italic;
+            margin-bottom: 20px;
         }
+
         p {
-            font-size: 120%; /* % */
-            color: hsl(0, 0%, 20%); /* Gris oscuro */
-            line-height: 1.5;
-            max-width: 600px;
+            font-size: 1.2em;
+            color: #424242;
+            line-height: 1.8;
             margin: 0 auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Rodolfo Eduardo</h1>
-    <h2>Programador y Diseñador web</h2>
-    <p>Pues soy alguien tranquilo y callado que disfruta de escuchar música. A mí me gusta entretenerme leyendo y jugando videojuegos.</p>
+    <div class="container">
+        <h1>Rodolfo Eduardo</h1>
+        <h2>Programador y Diseñador web</h2>
+        <p>Soy una persona tranquila y callada que disfruta de escuchar música. Me gusta entretenerme leyendo y jugando videojuegos. Bienvenido a mi museo virtual.</p>
+    </div>
 </body>
 </html>
