@@ -1,62 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Página con Pestañas</title>
+
+  <!-- Fuente moderna y Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #dbeafe, #e0f7fa, #fffde7, #e1bee7);
+      background-size: 400% 400%;
+      animation: bgAnimate 10s ease infinite;
+      color: #333;
+    }
+
+    @keyframes bgAnimate {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .tabs button {
+      padding: 10px 20px;
+      margin: 0 5px;
+      border: none;
+      border-radius: 10px;
+      background-color: #2c3e50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .tabs button.active {
+      background-color: #1abc9c;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .contenido {
+      margin-top: 20px;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .perfil {
+      background-color: white;
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      position: relative;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .perfil img {
+      position: absolute;
+      top: -60px;
+      right: 40px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #1abc9c;
+      object-fit: cover;
+      background-color: #fff;
+    }
+
+    .perfil h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .perfil p {
+      margin-top: 60px;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      color: #1abc9c;
+      margin: 0 10px;
+      font-size: 1.5em;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #16a085;
+    }
+
+    .formulario {
+      margin-top: 40px;
+      max-width: 600px;
+      width: 100%;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .formulario h2 {
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      color: #2c3e50;
+    }
+
+    .formulario input,
+    .formulario textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1em;
+    }
+
+    .formulario button {
+      background-color: #1abc9c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .formulario button:hover {
+      background-color: #16a085;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .perfil img {
+        position: static;
+        margin-top: -40px;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
-            <li><a href="#" onclick="mostrarSeccion('acerca')">Acerca de</a></li>
-            <li><a href="#" onclick="mostrarSeccion('museo')">Museo Virtual</a></li>
-        </ul>
-    </nav>
 
-    <section id="inicio">
-        <h1>RODOLFO EDUARDO</h1>
-        <p>¡Saludos a todos! Esta es mi página donde comparto mis intereses y hobbies.</p>
-        <p>A mí me gustan los videojuegos, soy una persona muy tranquila, actualmente estudio la preparatoria, mis hobbies son ver series.</p>
-        <img src="https://img.asmedia.epimg.net/resizer/v2/NCSUTWCFKVFM5CST6IA2Q6RHSM.jpeg?auth=718e4edc8014c15a453453038c506334e95d3496ed62ec52f82f1cb965f35eaf&width=644&height=362&smart=true" alt="Imagen representativa" width="300">
-    </section>
+  <div class="tabs">
+    <button onclick="showTab('inicio')" class="active">Inicio</button>
+    <button onclick="showTab('perfil')" >Perfil Miyamura</button>
+  </div>
 
-    <section id="acerca" style="display: none;">
-        <h2>Mis intereses</h2>
-        <ul>
-            <li>Edición de video</li>
-            <li>Programación básica</li>
-            <li>Estudiar nuevas tecnologías</li>
-        </ul>
-        <p>ACTUALMENTE YO SOY UN ESTUDIANTE DEL CENTRO DE ESTUDIOS DE BACHILLERATO 5/4 PROFESOR RAFAEL RAMÍREZ.</p>
-    </section>
+  <div id="inicio" class="tab-content active">
+    <h1>Bienvenido a mi sitio web</h1>
+    <p>Esta es la pestaña de inicio. Puedes agregar aquí cualquier contenido general.</p>
+  </div>
 
-    <section id="iframe-seccion" style="display: none;">
-        <button class="btn" onclick="mostrarIframe()">Mostrar Diseño</button>
-        <div id="contenedor" style="display: none;">
-            <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
-            src="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?embed"
-            allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-            <a href="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?utm_content=DAGg0CSSfUA&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">
-                Orange and White Creative Mind Map Brainstorm
-            </a>
+  <div id="perfil" class="tab-content">
+    <div class="contenido">
+      <div class="perfil">
+        <img src="https://via.placeholder.com/120" alt="Imagen de perfil" />
+        <h1>Miyamura</h1>
+        <p>
+          Me gusta el anime, los videojuegos de aventura, acción, carreras de coches, también juegos
+          inspirados en la Segunda Guerra Mundial y me gusta la música de casi todo, menos reguetón.
+        </p>
+        <div class="social-icons">
+          <a href="mailto:correo@example.com" title="Correo"><i class="fas fa-envelope"></i></a>
+          <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
-    </section>
+      </div>
 
-    <section id="museo" style="display: none;">
-        <button class="btn" onclick="mostrarLogin()">Entrar al Museo Virtual</button>
+      <div class="formulario" id="contacto1">
+        <h2>Contáctame</h2>
+        <form>
+          <input type="text" placeholder="Tu nombre" required />
+          <input type="email" placeholder="Tu correo" required />
+          <textarea rows="4" placeholder="Tu mensaje" required></textarea>
+          <button type="submit">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
-        <div id="login-container" style="display:none; background-color: white; padding: 20px; border-radius: 15px; max-width: 400px; margin: 20px auto;">
-            <h2>Iniciar Sesión</h2>
-            <input type="text" id="usuario" placeholder="Usuario" style="padding: 10px; width: 90%; margin-bottom: 10px;"><br>
-            <input type="password" id="contrasena" placeholder="Contraseña" style="padding: 10px; width: 90%; margin-bottom: 10px;"><br>
-            <button onclick="validarLogin()" class="btn">Entrar</button>
-            <p id="mensaje-login" style="color: red;"></p>
-        </div>
-
-        <p id="mensaje-salida" style="color: green; font-weight: bold; display: none;">¡Has cerrado sesión exitosamente!</p>
-
-        <div id="museo-virtual" class="museo-virtual" style="display: none;">
-            <h2>Museo Virtual</h2>
-            <ul>
-                <li><a href="TAZA FOFO.svg" target="_blank">Taza Fofo</a></li>
-                <li><a href="cat.svg" target="_blank">Gato</a></li>
-                <li><a href="INVITACION FOFO.svg" target="_blank">Invitación Fofo</a></li>
-                <li><a href="dibujo.svg" target="_blank">Dibujo</a></li>
-            </ul>
-            <button class="btn" onclick="cerrarSesion()">Cerrar Sesión</button>
-        </div>
-    </section>
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tabs button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
