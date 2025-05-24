@@ -50,6 +50,7 @@
       border-radius: 25px;
       font-weight: 600;
       transition: background 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
     }
 
     nav a:hover {
@@ -114,8 +115,20 @@
       color: #16a085;
     }
 
+    #info-contacto {
+      margin-top: 20px;
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    #contacto-texto {
+      font-weight: bold;
+      color: #2c3e50;
+      font-size: 1.1em;
+    }
+
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -131,9 +144,9 @@
 <body>
 
   <nav>
-    <a href="#contacto1">Correo</a>
+    <a id="btn-correo">Correo</a>
     <a href="#contacto2">Instagram</a>
-    <a href="#contacto3">WhatsApp</a>
+    <a id="btn-whatsapp">WhatsApp</a>
   </nav>
 
   <div class="contenido">
@@ -149,8 +162,38 @@
         <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/5217719453626" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
+
+      <!-- Contenedor para mostrar datos -->
+      <div id="info-contacto">
+        <p id="contacto-texto"></p>
+      </div>
     </div>
   </div>
+
+  <script>
+    const contenedor = document.getElementById('info-contacto');
+    const textoElemento = document.getElementById('contacto-texto');
+    let contactoActual = "";
+
+    document.getElementById('btn-correo').addEventListener('click', function () {
+      toggleContacto('Correo electrónico: rodolfohernandezh5--4@dgb.edu.mx');
+    });
+
+    document.getElementById('btn-whatsapp').addEventListener('click', function () {
+      toggleContacto('Número de WhatsApp: +52 1 771 945 3626');
+    });
+
+    function toggleContacto(texto) {
+      if (contenedor.style.display === 'block' && contactoActual === texto) {
+        contenedor.style.display = 'none';
+        contactoActual = "";
+      } else {
+        textoElemento.textContent = texto;
+        contenedor.style.display = 'block';
+        contactoActual = texto;
+      }
+    }
+  </script>
 
 </body>
 </html>
