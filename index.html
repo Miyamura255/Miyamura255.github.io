@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>  
 <html lang="es">
 <head>
     <link rel="stylesheet" href="estilos.css">
@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Página Personal</title>
     <style>
-        /* [Estilos originales, sin cambios] */
         body {
             background-color: darkcyan;
             font-family: Arial, sans-serif;
@@ -53,6 +52,13 @@
         nav ul li, #museo-virtual ul li {
             margin: 5px;
         }
+        .video-responsivo {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin: 20px 0;
+        }
         @media (max-width: 600px) {
             button, .btn-correo, nav ul li a, #museo-virtual ul li a {
                 width: 100%;
@@ -90,6 +96,7 @@
     </ul>
     <p>ACTUALMENTE YO SOY UN ESTUDIANTE DEL CENTRO DE ESTUDIOS DE BACHILLERATO 5/4 PROFESOR RAFAEL RAMÍREZ.</p>
     
+    <!-- Botón para mostrar diseño -->
     <button class="btn" onclick="mostrarIframe()">Mostrar Diseño</button>
     <div id="contenedor" style="display: none;">
         <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
@@ -98,6 +105,16 @@
         <a href="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?utm_content=DAGg0CSSfUA&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">
             Orange and White Creative Mind Map Brainstorm
         </a>
+    </div>
+
+    <!-- Botón para mostrar video -->
+    <button class="btn" id="btn-video" onclick="toggleVideo()">Mostrar Video</button>
+    <div id="video-container" style="display: none;">
+        <h2>Mi Video</h2>
+        <video class="video-responsivo" controls>
+            <source src="VID-20250528-WA0001.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
     </div>
 
     <button class="btn" onclick="mostrarLogin()">Entrar al Museo Virtual</button>
@@ -173,7 +190,21 @@
             }, 4000);
         }
 
-        // Verifica el estado del login al cargar la página
+        function toggleVideo() {
+            const contenedor = document.getElementById("video-container");
+            const boton = document.getElementById("btn-video");
+            const video = contenedor.querySelector("video");
+
+            if (contenedor.style.display === "none") {
+                contenedor.style.display = "block";
+                boton.textContent = "Ocultar Video";
+            } else {
+                contenedor.style.display = "none";
+                boton.textContent = "Mostrar Video";
+                video.pause();
+            }
+        }
+
         window.onload = function() {
             if (localStorage.getItem("logueado") === "true") {
                 document.getElementById("museo-virtual").style.display = "block";
@@ -182,4 +213,4 @@
         };
     </script>
 </body>
-</html> 
+</html>
