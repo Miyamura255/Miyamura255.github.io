@@ -1,4 +1,4 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>   
 <html lang="es">
 <head>
     <link rel="stylesheet" href="estilos.css">
@@ -95,7 +95,7 @@
         <li>Estudiar nuevas tecnologías</li>
     </ul>
     <p>ACTUALMENTE YO SOY UN ESTUDIANTE DEL CENTRO DE ESTUDIOS DE BACHILLERATO 5/4 PROFESOR RAFAEL RAMÍREZ.</p>
-    
+
     <!-- Botón para mostrar diseño -->
     <button class="btn" onclick="mostrarIframe()">Mostrar Diseño</button>
     <div id="contenedor" style="display: none;">
@@ -117,7 +117,8 @@
         </video>
     </div>
 
-    <button class="btn" onclick="mostrarLogin()">Entrar al Museo Virtual</button>
+    <!-- Botón para mostrar login -->
+    <button id="btn-login" class="btn" onclick="mostrarLogin()">Entrar al Museo Virtual</button>
 
     <!-- Contenedor del login -->
     <div id="login-container" style="display:none; background-color: white; padding: 20px; border-radius: 15px; max-width: 400px; margin: 20px auto;">
@@ -149,16 +150,9 @@
             contenedor.style.display = contenedor.style.display === "none" ? "block" : "none";
         }
 
-        function mostrarTelefono() {
-            alert("Mi número es: 7715037670");
-        }
-
-        function mostrarCorreo() {
-            alert("Mi correo es: rodolfohernandezh5--4@dgb.edu.mx");
-        }
-
         function mostrarLogin() {
             document.getElementById("login-container").style.display = "block";
+            document.getElementById("btn-login").style.display = "none";
         }
 
         function validarLogin() {
@@ -170,6 +164,7 @@
                 localStorage.setItem("logueado", "true");
                 document.getElementById("login-container").style.display = "none";
                 document.getElementById("museo-virtual").style.display = "block";
+                document.getElementById("btn-login").style.display = "none";
             } else {
                 mensaje.textContent = "Usuario o contraseña incorrectos.";
             }
@@ -178,7 +173,8 @@
         function cerrarSesion() {
             localStorage.removeItem("logueado");
             document.getElementById("museo-virtual").style.display = "none";
-            document.getElementById("login-container").style.display = "block";
+            document.getElementById("login-container").style.display = "none";
+            document.getElementById("btn-login").style.display = "inline-block";
             document.getElementById("usuario").value = "";
             document.getElementById("contrasena").value = "";
             document.getElementById("mensaje-login").textContent = "";
@@ -209,6 +205,9 @@
             if (localStorage.getItem("logueado") === "true") {
                 document.getElementById("museo-virtual").style.display = "block";
                 document.getElementById("login-container").style.display = "none";
+                document.getElementById("btn-login").style.display = "none";
+            } else {
+                document.getElementById("btn-login").style.display = "inline-block";
             }
         };
     </script>
