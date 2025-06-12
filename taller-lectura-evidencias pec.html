@@ -1,215 +1,178 @@
-<!DOCTYPE html>   
+<!DOCTYPE html>  
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="estilos.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Personal</title>
-    <style>
-        body {
-            background-color: darkcyan;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-        }
-        h1 { color: darkgreen; }
-        ul { list-style-type: none; padding: 0; margin: 0; }
-        button, .btn-correo, nav ul li a {
-            font-family: 'Segoe UI', sans-serif;
-            font-size: 15px;
-            padding: 10px 16px;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: white;
-            display: inline-block;
-            margin: 5px 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-        .btn-correo { background-color: #007BFF; }
-        .btn-correo:hover { background-color: #0056b3; }
-        button.btn { background-color: #28a745; }
-        button.btn:hover { background-color: #218838; }
-        nav ul li a { background-color: #6c757d; }
-        nav ul li a:hover { background-color: #5a6268; }
-        #museo-virtual ul li a {
-            background-color: #17a2b8;
-            padding: 8px 14px;
-            border-radius: 10px;
-        }
-        #museo-virtual ul li a:hover {
-            background-color: #138496;
-        }
-        nav ul, #museo-virtual ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-        nav ul li, #museo-virtual ul li {
-            margin: 5px;
-        }
-        .video-responsivo {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            margin: 20px 0;
-        }
-        @media (max-width: 600px) {
-            button, .btn-correo, nav ul li a, #museo-virtual ul li a {
-                width: 100%;
-                max-width: 300px;
-                margin: 8px auto;
-                display: block;
-            }
-            iframe {
-                width: 100% !important;
-                height: 300px !important;
-                position: relative !important;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taller de Lectura - Evidencias</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primario: #0f172a;
+      --color-secundario: #00bcd4;
+      --color-acento: #ff4081;
+      --color-fondo: #f0f4f8;
+      --fuente-principal: 'Montserrat', sans-serif;
+    }
+    body {
+      margin: 0;
+      font-family: var(--fuente-principal);
+      background-color: var(--color-fondo);
+      color: #1e293b;
+    }
+    header {
+      background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-bottom: 5px solid var(--color-acento);
+    }
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: var(--color-primario);
+      text-decoration: none;
+      margin: 0 2rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      height: 3px;
+      background: var(--color-acento);
+      width: 0;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    main {
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    .descripcion {
+      background: white;
+      padding: 2rem;
+      border-left: 6px solid var(--color-secundario);
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    }
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .galeria img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .galeria img:hover {
+      transform: scale(1.03);
+    }
+    .actividades ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .actividades li {
+      background: white;
+      margin-bottom: 1rem;
+      padding: 1.5rem;
+      border-left: 6px solid var(--color-acento);
+      border-radius: 10px;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.06);
+    }
+    footer {
+      background-color: var(--color-primario);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+    /* Estilos para el nuevo botón */
+    .btn-regresar {
+      display: inline-block;
+      background-color: var(--color-acento);
+      color: white;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+    }
+    .btn-regresar:hover {
+      background-color: #e91e63;
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="perfil.html" target="_blank">Perfil</a></li>
-            <li><a href="#museo-virtual">Museo Virtual</a></li>
-        </ul>
-    </nav>
+  <header>
+    <h1>Taller de Lectura</h1>
+    <p>Explora nuestras actividades, evidencias y el impacto de la lectura creativa.</p>
+  </header>
 
-    <h1>RODOLFO EDUARDO</h1>
-    <p>¡Saludos a todos! Esta es mi página donde comparto mis intereses y hobbies.</p>
-    <p>A mí me gustan los videojuegos, soy una persona muy tranquila, actualmente estudio la preparatoria, mis hobbies son ver series.</p>
-    <img src="https://img.asmedia.epimg.net/resizer/v2/NCSUTWCFKVFM5CST6IA2Q6RHSM.jpeg?auth=718e4edc8014c15a453453038c506334e95d3496ed62ec52f82f1cb965f35eaf&width=644&height=362&smart=true" alt="Imagen representativa" width="300">
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#actividades">Actividades</a>
+    <a href="#galeria">Galería</a>
+  </nav>
 
-    <h2>Mis intereses</h2>
-    <ul>
-        <li>Edición de video</li>
-        <li>Programación básica</li>
-        <li>Estudiar nuevas tecnologías</li>
-    </ul>
-    <p>ACTUALMENTE YO SOY UN ESTUDIANTE DEL CENTRO DE ESTUDIOS DE BACHILLERATO 5/4 PROFESOR RAFAEL RAMÍREZ.</p>
+  <main>
+    <section id="inicio" class="descripcion">
+      <h2>Bienvenido al Taller de Lectura</h2>
+      <p>Este sitio está dedicado a mostrar el desarrollo del taller de lectura donde fomentamos la comprensión lectora, el pensamiento crítico y la creatividad en los estudiantes. Aquí encontrarás nuestras actividades principales y una galería con evidencias del trabajo realizado.</p>
+    </section>
 
-    <!-- Botón para mostrar diseño -->
-    <button class="btn" onclick="mostrarIframe()">Mostrar Diseño</button>
-    <div id="contenedor" style="display: none;">
-        <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
-        src="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?embed"
-        allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-        <a href="https://www.canva.com/design/DAGg0CSSfUA/eKu7dir6ndFY_mXEVr82Rg/view?utm_content=DAGg0CSSfUA&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">
-            Orange and White Creative Mind Map Brainstorm
-        </a>
+    <section id="actividades" class="actividades">
+      <h2>Actividades Destacadas</h2>
+      <ul>
+        <li><strong>Círculos de lectura:</strong> debates sobre libros leídos en grupo.</li>
+        <li><strong>Lectura dramatizada:</strong> representaciones escénicas de textos narrativos.</li>
+        <li><strong>Escritura creativa:</strong> creación de cuentos, poemas y ensayos.</li>
+        <li><strong>Club de lectura digital:</strong> participación en foros en línea para comentar lecturas.</li>
+      </ul>
+    </section>
+
+    <section id="galeria">
+      <h2>Galería de Evidencias</h2>
+      <div class="galeria">
+        <img src="imagen1.jpg" alt="Estudiantes leyendo en grupo">
+        <img src="imagen2.jpg" alt="Dramatización de cuento">
+        <img src="imagen3.jpg" alt="Presentación de trabajos escritos">
+        <img src="imagen4.jpg" alt="Club de lectura en línea">
+      </div>
+    </section>
+
+    <!-- Botón nuevo que regresa a la página personal -->
+    <div style="text-align: center;">
+      <a href="pagina-personal.html" class="btn-regresar">Regresar a Mi Página Personal</a>
     </div>
+  </main>
 
-    <!-- Botón para mostrar video -->
-    <button class="btn" id="btn-video" onclick="toggleVideo()">Mostrar Video</button>
-    <div id="video-container" style="display: none;">
-        <h2>Mi Video</h2>
-        <video class="video-responsivo" controls>
-            <source src="VID-20250528-WA0001.mp4" type="video/mp4">
-            Tu navegador no soporta el elemento de video.
-        </video>
-    </div>
-
-    <!-- Botón para mostrar login -->
-    <button id="btn-login" class="btn" onclick="mostrarLogin()">Entrar al Museo Virtual</button>
-
-    <!-- Contenedor del login -->
-    <div id="login-container" style="display:none; background-color: white; padding: 20px; border-radius: 15px; max-width: 400px; margin: 20px auto;">
-        <h2>Iniciar Sesión</h2>
-        <input type="text" id="usuario" placeholder="Usuario" style="padding: 10px; width: 90%; margin-bottom: 10px;"><br>
-        <input type="password" id="contrasena" placeholder="Contraseña" style="padding: 10px; width: 90%; margin-bottom: 10px;"><br>
-        <button onclick="validarLogin()" class="btn">Entrar</button>
-        <p id="mensaje-login" style="color: red;"></p>
-    </div>
-
-    <!-- Mensaje de despedida -->
-    <p id="mensaje-salida" style="color: green; font-weight: bold; display: none;">¡Has cerrado sesión exitosamente!</p>
-
-    <!-- Museo Virtual -->
-    <div id="museo-virtual" class="museo-virtual" style="display: none;">
-        <h2>Museo Virtual</h2>
-        <ul>
-            <li><a href="TAZA FOFO.svg" target="_blank">Taza Fofo</a></li>
-            <li><a href="cat.svg" target="_blank">Gato</a></li>
-            <li><a href="INVITACION FOFO.svg" target="_blank">Invitación Fofo</a></li>
-            <li><a href="dibujo.svg" target="_blank">Dibujo</a></li>
-        </ul>
-        <button class="btn" onclick="cerrarSesion()">Cerrar Sesión</button>
-    </div>
-
-    <script>
-        function mostrarIframe() {
-            var contenedor = document.getElementById("contenedor");
-            contenedor.style.display = contenedor.style.display === "none" ? "block" : "none";
-        }
-
-        function mostrarLogin() {
-            document.getElementById("login-container").style.display = "block";
-            document.getElementById("btn-login").style.display = "none";
-        }
-
-        function validarLogin() {
-            const usuario = document.getElementById("usuario").value;
-            const contrasena = document.getElementById("contrasena").value;
-            const mensaje = document.getElementById("mensaje-login");
-
-            if (usuario === "miyamura" && contrasena === "2525") {
-                localStorage.setItem("logueado", "true");
-                document.getElementById("login-container").style.display = "none";
-                document.getElementById("museo-virtual").style.display = "block";
-                document.getElementById("btn-login").style.display = "none";
-            } else {
-                mensaje.textContent = "Usuario o contraseña incorrectos.";
-            }
-        }
-
-        function cerrarSesion() {
-            localStorage.removeItem("logueado");
-            document.getElementById("museo-virtual").style.display = "none";
-            document.getElementById("login-container").style.display = "none";
-            document.getElementById("btn-login").style.display = "inline-block";
-            document.getElementById("usuario").value = "";
-            document.getElementById("contrasena").value = "";
-            document.getElementById("mensaje-login").textContent = "";
-
-            const mensajeSalida = document.getElementById("mensaje-salida");
-            mensajeSalida.style.display = "block";
-            setTimeout(() => {
-                mensajeSalida.style.display = "none";
-            }, 4000);
-        }
-
-        function toggleVideo() {
-            const contenedor = document.getElementById("video-container");
-            const boton = document.getElementById("btn-video");
-            const video = contenedor.querySelector("video");
-
-            if (contenedor.style.display === "none") {
-                contenedor.style.display = "block";
-                boton.textContent = "Ocultar Video";
-            } else {
-                contenedor.style.display = "none";
-                boton.textContent = "Mostrar Video";
-                video.pause();
-            }
-        }
-
-        window.onload = function() {
-            if (localStorage.getItem("logueado") === "true") {
-                document.getElementById("museo-virtual").style.display = "block";
-                document.getElementById("login-container").style.display = "none";
-                document.getElementById("btn-login").style.display = "none";
-            } else {
-                document.getElementById("btn-login").style.display = "inline-block";
-            }
-        };
-    </script>
+  <footer>
+    <p>&copy; 2025 Taller de Lectura. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
